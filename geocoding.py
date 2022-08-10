@@ -20,14 +20,3 @@ def request_handler(request):
 
     else:
         return "error"
-
-
-# dic = {'type': 'FeatureCollection', 'query': ['prudential', 'center'], 'features': [{'id': 'poi.609885376421', 'type':
-# 'Feature', 'place_type': ['poi'], 'relevance': 1, 'properties': {'foursquare': '4a54a236f964a5202db31fe3', 'landmark':
-# True, 'address': '800 Boylston St', 'category': 'business, service, building'}, 'text': 'Prudential Center Tower',
-# 'place_name': 'Prudential Center Tower, 800 Boylston St, Boston, Massachusetts 02199, United States', 'center':
-# [-71.082487, 42.347087], 'geometry': {'coordinates': [-71.082487, 42.347087], 'type': 'Point'}, 'context': [{'id':
-# 'neighborhood.2400071126510821', 'text': 'Prudential'}, {'id': 'postcode.7546133011393040', 'text': '02199'}, {'id':
-# 'place.5300947049012190', 'wikidata': 'Q100', 'text': 'Boston'}, {'id': 'district.11510878044935260', 'wikidata':
-# 'Q54072', 'text': 'Suffolk County'}, {'id': 'region.8307399429561540', 'short_code': 'US-MA', 'wikidata': 'Q771',
-# 'text': 'Massachusetts'}, {'id': 'country.14135384517372290', 'wikidata': 'Q30', 'short_code': 'us', 'text': 'United States'}]}]
