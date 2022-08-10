@@ -34,22 +34,11 @@ def request_handler(request) :
 
         elif request['form']['user'] == 'arduino':
             #arduino has posted image data
-            #add data to database data.db
             imageData = request['form']['data']
             b = bytes.fromhex(imageData)
             with open("/var/jail/home/team40/images/newimg.jpg", 'wb') as f:
                 f.write(b)
                 f.close()
-            
-            # currentTime = datetime.datetime.now()
-
-            # conn = sqlite3.connect(imagedata_db)  # connect to that database (will create if it doesn't already exist)
-            # c = conn.cursor()  # move cursor into database (allows us to execute commands)
-            # c.execute('''CREATE TABLE IF NOT EXISTS imagedata (data text, timing datetime);''') # run a CREATE TABLE command if it doesn't exist
-
-            # c.execute('''INSERT INTO imagedata VALUES (?,?);''', (imageData, currentTime))
-            # conn.commit() # commit commands
-            # conn.close() # close connection to database
 
         else:
             return 'error'
