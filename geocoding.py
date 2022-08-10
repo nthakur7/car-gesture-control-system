@@ -9,7 +9,7 @@ def request_handler(request):
 
         getRequest = """https://api.mapbox.com/geocoding/v5/mapbox.places/{}.json?""".format(location)
         getRequest += """limit=1&proximity=-71.093086,42.358181&types=place,poi,address"""
-        getRequest += """&access_token=pk.eyJ1Ijoic2FtYXlnb2Rpa2EiLCJhIjoiY2wyYzByczlnMGFjMDNjbXhsa3EycmpscyJ9.5ak4IQW4G5wluwPxIDZYGA"""
+        getRequest += #removed access token for security
                         
         # return getRequest
         r = requests.get(getRequest)
