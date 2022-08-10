@@ -1,9 +1,9 @@
 from twilio.rest import Client
 
-ACCOUNT_ID = 'ACbbcf75776af41239478e20ea01030344'
-AUTH_TOKEN = 'd5c9888ad83c45da1437d40b54335ebe'
-FROM_PHONE = "+19707166492"
-TO_PHONE = "+16177753891"
+ACCOUNT_ID = #removed for security
+AUTH_TOKEN = #removed for security
+FROM_PHONE = #insert from phone num
+TO_PHONE = #insert to phone num
 def request_handler(request) :
 
     if(request["method"] == 'POST'):
