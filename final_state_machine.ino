@@ -115,8 +115,6 @@ uint32_t time_since_sample;      // used for microsecond timing
 
 
 int wifi_object_builder(char* object_string, uint32_t os_len, uint8_t channel, int signal_strength, uint8_t* mac_address) {
-    //you need to write this yourself!
-    //and use lab code for testing!
     char tmp[90];
   
     int tmplength = sprintf(tmp, "{\"macAddress\": \"%02x:%02x:%02x:%02x:%02x:%02x\", \"signalStrength\": %d, \"age\": 0, \"channel\": %d}", 
