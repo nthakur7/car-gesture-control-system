@@ -26,7 +26,7 @@ void printDetail(uint8_t type, int value);
 //Prefix to POST request:
 const char PREFIX[] = "{\"wifiAccessPoints\": ["; //beginning of json body
 const char SUFFIX[] = "]}"; //suffix to POST request
-const char API_KEY[] = "AIzaSyAQ9SzqkHhV-Gjv-71LohsypXUH447GWX8"; //don't change this and don't share this
+const char API_KEY[] = // redacted for security
 const int MAX_APS = 5;
 
 
@@ -176,14 +176,11 @@ const char *AP_ssid = "arducam_esp32";
 //Default is no password.If you want to set password,put your password here
 const char *AP_password = NULL;
 
-// char network[] = "NandiniHotspot";
-// char passdecodedWord[] = "skkc4899";
-
 char network[] = "EECS_Labs";
 char passdecodedWord[] = "";
 
-const char *ssid = "AnirudhHotspot";  //CHANGE THIS TO YOUR OWN HOTSPOT
-const char *password = "password";  
+const char *ssid = // redacted for security
+const char *password = // redacted for security
  
  
 static const size_t bufferSize = 5000;
@@ -257,8 +254,6 @@ void readImage() {
 
  
 void postServer(uint8_t * data, int index) {
-  // Serial.print("index ");
-  // Serial.println(index);
   request2[0] = '\0';
   sprintf(request2,"POST /sandbox/sc/team40/imageLoad.py HTTP/1.1\r\n");
   strcat(request2,"Host: 608dev-2.net\r\n");
@@ -350,30 +345,6 @@ void setup() {
     while (1)
       ;
   }
-
-  // int32_t channel = getWiFiChannel(network);
-  // esp_wifi_set_channel(channel, WIFI_SECOND_CHAN_NONE);
-
-  // Init ESP-NOW
-  // if (esp_now_init() != ESP_OK) {
-  //   Serial.println("Error initializing ESP-NOW");
-  //   return;
-  // }
-
-  // // Once ESPNow is successfully Init, we will register for Send CB to
-  // // get the status of Trasnmitted packet
-  // esp_now_register_send_cb(OnDataSent);
-
-  // // Register peer
-  // memcpy(peerInfo.peer_addr, broadcastAddress, 6);
-  // peerInfo.channel = 0;  
-  // peerInfo.encrypt = false;
-
-  // // Add peer        
-  // if (esp_now_add_peer(&peerInfo) != ESP_OK){
-  //   Serial.println("Failed to add peer");
-  //   return;
-  // }
 
   //Check if the ArduCAM SPI bus is OK
   myCAM.write_reg(ARDUCHIP_TEST1, 0x55);
@@ -468,13 +439,6 @@ void loop() {
   getServer();
   //Serial.println("after get server");
   returnval = atoi(getresponse); //atoi would give 0 on empty
-  //Serial.println("after atoi");
-  // Serial.println(returnval);
-  // Serial.print("state: ");
-  // Serial.println(state);
-  // if (returnval !=0) {
-  //   gesture(state, returnval);
-  // }
   getresponse[0] = '\0';
   gesture(state, returnval);
   Serial.println("after main state machine call");
@@ -517,18 +481,6 @@ void gesture(uint8_t curstate, uint8_t stat) {
 
       else if (stat==PLAY /*&& !playingMedia*/) {
         Serial.println("PLAYING");
-
-        // myData.gesture = PLAY;
-
-        // // Send message via ESP-NOW
-        // esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
-
-        // if (result == ESP_OK) {
-        //   Serial.println("Sent with success");
-        // }
-        // else {
-        //   Serial.println("Error sending the data");
-        // }
         playCallout(curr_song);
 
         state = MEDIA;
@@ -539,18 +491,6 @@ void gesture(uint8_t curstate, uint8_t stat) {
       else if (stat==PAUSE /*&& !pausingMedia*/) {
         //send 3 via ESP NOW
         Serial.println("PAUSING");
-
-        // myData.gesture = PAUSE;
-
-        // // Send message via ESP-NOW
-        // esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
-
-        // if (result == ESP_OK) {
-        //   Serial.println("Sent with success");
-        // }
-        // else {
-        //   Serial.println("Error sending the data");
-        // }
 
         myDFPlayer.pause();
 
@@ -652,9 +592,6 @@ void gesture(uint8_t curstate, uint8_t stat) {
         //TODO CHANGE TO TAKE IN USER VOICE INPUT HERE
         getAudio();
         getLocationCoords(finalword);   
-      //  if (strlen(finalword)> 0) {
-      //    getLocationCoords("logan airport");
-      //  }   
       
         Serial.println("second req");
 
